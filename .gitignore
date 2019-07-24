@@ -1,0 +1,43 @@
+HELP.md
+target
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+
+log
+alipay/src/main/resources/
+alipay/src/test/
+common/src/main/resources/
+httpapi/src/main/java/com/judian/httpapi/pay/
+httpapi/src/test/
+payservice/src/main/resources/
+payservice/src/test/
+pmsservice/src/main/java/com/judian/pmsinterface/dto/resp/wechat/
+pmsservice/src/main/resources/
+pmsservice/src/test/
+wechatpay/src/
