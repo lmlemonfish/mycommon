@@ -4,7 +4,7 @@ import com.judian.basecommon.enums.SystemErrorCode;
 
 /**
  * @author LM
- * @description:
+ * @description: 后端统一返回对象
  * @version v1.0
  * @date 2019/5/15 17:06
  */

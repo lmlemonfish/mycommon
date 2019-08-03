@@ -25,11 +25,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 日期处理
- *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年12月21日 下午12:53:33
+ * @author LM
+ * @version v1.0
+ * @description: 日期工具类，需要jode-time第三方包
+ * @date 2019/7/24 11:01
  */
 public class DateUtils {
     /**
