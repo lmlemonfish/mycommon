@@ -23,6 +23,7 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author LM
@@ -63,6 +64,17 @@ public class DateUtils {
             return df.format(date);
         }
         return null;
+    }
+
+    /**
+     * 获取星期名称
+     * @param date
+     * @return
+     */
+    public static String getNameDayOfWeek(String date) {
+        DateTime dateTime = new DateTime(date);
+        DateTime.Property property = dateTime.dayOfWeek();
+        return property.getAsText(Locale.ENGLISH);
     }
 
     /**
