@@ -16,10 +16,13 @@
 
 package com.judian.basecommon.utils;
 
+import com.judian.basecommon.enums.SystemErrorCode;
+import com.judian.basecommon.exception.JdException;
 import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -74,6 +77,27 @@ public class DateUtils {
         DateTime dateTime = new DateTime(date);
         DateTime.Property property = dateTime.dayOfWeek();
         return property.getAsText(Locale.ENGLISH);
+    }
+
+    /**
+     * 解析日期格式
+     * @param dateStr
+     * @return
+     */
+    public static Date parseFormatOne(String dateStr) {
+        SimpleDateFormat format = null;
+        String[] split = dateStr.split("\\s+");
+        if (split.length == 2) {
+            format = new SimpleDateFormat(DATE_TIME_PATTERN);
+        } else {
+            format = new SimpleDateFormat(DATE_PATTERN);
+        }
+
+        try {
+            return format.parse(dateStr);
+        } catch (ParseException e) {
+            throw new JdException(SystemErrorCode.NORMAL_FAILD.getMsg());
+        }
     }
 
     /**
