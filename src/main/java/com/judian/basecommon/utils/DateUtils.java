@@ -16,8 +16,7 @@
 
 package com.judian.basecommon.utils;
 
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
+import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -75,6 +74,41 @@ public class DateUtils {
         DateTime dateTime = new DateTime(date);
         DateTime.Property property = dateTime.dayOfWeek();
         return property.getAsText(Locale.ENGLISH);
+    }
+
+    /**
+     * 相差天数
+     * @param start
+     * @param end
+     * @return
+     */
+    public static int periodDays(String start, String end) {
+
+        DateTimeFormatter format = null;
+        String[] startspl = start.split("\\s+");
+        String[] endspl = end.split("\\s+");
+        if (startspl.length == 2 && endspl.length == 2) {
+            format = DateTimeFormat.forPattern(DATE_TIME_PATTERN);
+        } else {
+            format = DateTimeFormat.forPattern(DATE_PATTERN);
+        }
+
+        DateTime startTime = format.parseDateTime(start);
+        DateTime endTime = format.parseDateTime(end);
+
+        Interval interval = new Interval(startTime, endTime);
+        Period period = interval.toPeriod(PeriodType.days());
+        return period.getDays();
+    }
+
+    public static int periodTime(Date start, Date end) {
+
+        DateTime startTime = new DateTime(start);
+        DateTime endTime = new DateTime(end);
+
+        Interval interval = new Interval(startTime, endTime);
+        Period period = interval.toPeriod(PeriodType.days());
+        return period.getDays();
     }
 
     /**
